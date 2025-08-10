@@ -11,5 +11,23 @@
     <a href="{% url 'destination-update' destination.id %}" class="btn warn">Edit</a>
     <a href="{% url 'destination-delete' destination.id %}" class="btn danger">Delete</a>
   </div>
+
+  <table>
+    <thead>
+      <tr>
+        <h1>Activites</h1>
+        <th>Activity Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for activity in destination.activity_set.all %}
+        <tr>
+          <td>{{activity.name}}</td>
+          <td>{{activity.description}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </section>
 {% endblock %}
