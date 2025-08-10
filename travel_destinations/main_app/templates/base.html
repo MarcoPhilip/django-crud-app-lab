@@ -16,8 +16,9 @@
       <h1>Travel Destinations</h1>
       <nav>
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/destinations">Destinations</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'destinations' %}">Destinations</a></li>
+          <li><a href="{% url 'destination-create' %}">Add a Destination</a></li>
         </ul>
       </nav>
     </header>
