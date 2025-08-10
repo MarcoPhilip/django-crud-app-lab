@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Destination, Activity
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -27,6 +27,14 @@ def destination_detail(request, destination_id):
         'activity_form': activity_form
     })
 
+def add_activity(request, destination_id):
+    form = ActivityForm(request.POST)
+
+    if form.is_valid():
+        new_activity = form.save(commit=False)
+        new_activity.destination_id = destination_id
+        new_activity.save()
+    return redirect('destination-detail', destination_id=destination_id)
 
 class DestinationCreate(CreateView):
     model = Destination

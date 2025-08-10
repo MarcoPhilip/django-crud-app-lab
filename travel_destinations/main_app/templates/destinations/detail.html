@@ -13,9 +13,10 @@
   </div>
 
   <table>
+    <h1>Activities</h1>
     <thead>
       <tr>
-        <h1>Activites</h1>
+        <h3>Activity List</h3>
         <th>Activity Name</th>
         <th>Description</th>
       </tr>
@@ -29,5 +30,14 @@
       {% endfor %}
     </tbody>
   </table>
+  <div>
+    <h3>Add an Activity</h3>
+    <form action="{% url 'add-activity' destination.id %}"
+    method="post" class="subsection-content" autocomplete="off">
+      {% csrf_token %} 
+      {{ activity_form.as_p }}
+      <button type="submit" class="btn submit">Add Activity</button>
+    </form>
+  </div>
 </section>
 {% endblock %}
