@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Destination, Activity
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 
@@ -27,4 +28,11 @@ def destination_detail(request, destination_id):
 class DestinationCreate(CreateView):
     model = Destination
     fields = ['name', 'country', 'description']
-    
+
+class DestinationUpdate(UpdateView):
+    model = Destination
+    fields = ['name', 'country', 'description']
+
+class DestinationDelete(DeleteView):
+    model = Destination
+    success_url = '/destinations/'

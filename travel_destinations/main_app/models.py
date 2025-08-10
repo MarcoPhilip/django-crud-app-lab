@@ -10,7 +10,7 @@ class Destination(models.Model):
     def __str__(self):
         return self.name
     
-    def get_absolute_urls(self):
+    def get_absolute_url(self):
         return reverse('destination-detail', kwargs={'destination_id': self.id})
     
 

@@ -7,5 +7,9 @@
     <h1>{{ destination.name }}, {{ destination.country }}</h1>
     <p>{{ destination.description }}</p>
   </div>
+  <div>
+    <a href="{% url 'destination-update' destination.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'destination-delete' destination.id %}" class="btn danger">Delete</a>
+  </div>
 </section>
 {% endblock %}
