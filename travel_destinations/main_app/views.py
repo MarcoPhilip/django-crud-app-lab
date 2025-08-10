@@ -53,6 +53,14 @@ class ActivityUpdate(UpdateView):
     model = Activity
     fields = ['name', 'description']
 
+    def get_success_url(self):
+        destination_id = self.object.destination.id
+        
+        return reverse(
+            'destination-detail',
+            kwargs={'destination_id': destination_id}
+        )
+
 class ActivityDelete(DeleteView):
     model = Activity
     
