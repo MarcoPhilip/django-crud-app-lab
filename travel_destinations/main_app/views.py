@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Destination, Activity
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
+from .forms import ActivityForm
 
 # Create your views here.
 
@@ -21,8 +21,11 @@ def destination_index(request):
 
 def destination_detail(request, destination_id):
     destination = Destination.objects.get(id=destination_id)
-
-    return render(request, 'destinations/detail.html', {'destination': destination})
+    activity_form = ActivityForm()
+    return render(request, 'destinations/detail.html',{
+        'destination': destination,
+        'activity_form': activity_form
+    })
 
 
 class DestinationCreate(CreateView):
