@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+<section class="cat-container">
+  <div class="destination-details">
+    <h1>{{ destination.name }}, {{ destination.country }}</h1>
+    <p>{{ destination.description }}</p>
+  </div>
+</section>
+{% endblock %}

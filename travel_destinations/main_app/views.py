@@ -11,8 +11,13 @@ def about(request):
     return render(request, 'about.html')
 
 def destination_index(request):
-    destinations = Destination.objects.filter
+    destinations = Destination.objects.all
 
     return render(request, 'destinations/index.html', {
         'destinations': destinations
     })
+
+def destination_detail(request, destination_id):
+    destination = Destination.objects.get(id=destination_id)
+
+    return render(request, 'destinations/detail.html', {'destination': destination})

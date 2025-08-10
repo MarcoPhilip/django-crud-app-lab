@@ -6,5 +6,6 @@ urlpatterns = [
    # Routes go here
    path('about/', views.about, name='about'),
    path('', views.home, name='home'),
-   path('destinations', views.destination_index, name='destinations')
+   path('destinations', views.destination_index, name='destinations'),
+   path('destinations/<int:destination_id>/', views.destination_detail, name='destination-detail')
 ]
