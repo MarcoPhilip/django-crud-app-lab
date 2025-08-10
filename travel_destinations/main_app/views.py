@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Destination, Activity
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ActivityForm
+from django.urls import reverse
 
 # Create your views here.
 
@@ -47,3 +48,18 @@ class DestinationUpdate(UpdateView):
 class DestinationDelete(DeleteView):
     model = Destination
     success_url = '/destinations/'
+
+class ActivityUpdate(UpdateView):
+    model = Activity
+    fields = ['name', 'description']
+
+class ActivityDelete(DeleteView):
+    model = Activity
+    
+    def get_success_url(self):
+        destination_id = self.object.destination.id
+        
+        return reverse(
+            'destination-detail',
+            kwargs={'destination_id': destination_id}
+        )

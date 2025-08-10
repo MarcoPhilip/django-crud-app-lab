@@ -12,4 +12,6 @@ urlpatterns = [
    path('destinations/<int:pk>/update', views.DestinationUpdate.as_view(), name='destination-update'),
    path('destinations/<int:pk>/delete', views.DestinationDelete.as_view(), name='destination-delete'),
    path('destinations/<int:destination_id>/add-activity', views.add_activity, name='add-activity'),
+   path('activity/<int:pk>/update', views.ActivityUpdate.as_view(), name='activity-update'),
+   path('activity/<int:pk>/delete', views.ActivityDelete.as_view(), name='activity-delete'),
 ]

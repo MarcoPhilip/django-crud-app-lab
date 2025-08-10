@@ -19,6 +19,9 @@
         <h3>Activity List</h3>
         <th>Activity Name</th>
         <th>Description</th>
+        <th>
+          Actions
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +29,9 @@
         <tr>
           <td>{{activity.name}}</td>
           <td>{{activity.description}}</td>
+          <td>
+            <a href="{% url 'activity-delete' activity.id %}">Remove Activity</a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
